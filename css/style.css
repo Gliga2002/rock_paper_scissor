@@ -5,6 +5,8 @@
   border-radius:1rem;
 }
 
+
+
 .item {
   padding: 1rem 2rem;
   background-color: white;
@@ -20,4 +22,93 @@
     border-bottom: 2px solid;
     transform: translate(1%, -1%);
     transition: all 0.1s ease-in;
+}
+
+.item:active {
+  background-color: lightgrey;
+  box-shadow: 3px 3px 1px black;
+  border-bottom: 2px solid;
+  transform: translate(1%, -1%);
+  transition: all 0.1s ease-in;
+}
+
+.clicked-player {
+  background-color: red;
+  border-bottom: black;
+  border-right: black;
+}
+
+.clicked-player:hover {
+  background-color: red;
+  border-bottom: black;
+}
+
+.clicked-computer {
+  background-color: blue;
+  border-bottom: black;
+  border-right: black;
+}
+
+
+
+#endbutton
+{
+  display:inline-block;
+  background-color: white;
+  text-decoration: none;
+  color:black;
+  min-width: 100px;
+  height: 50px;
+  margin-bottom: 150px;
+  text-transform: uppercase;
+  padding: 15px;
+  border: none;
+  outline: none;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 400px;
+  font-size: 20px;
+  border-radius: 3px;
+  box-shadow: 4px 5px 0px;
+  border-bottom: 2px solid;
+  border-right: 1px solid;
+  margin: 0;
+  position: relative;
+  top: 45%;
+  transform: translate(-1%, -3%);
+}
+
+#startbutton {
+  display:inline-block;
+  background-color: white;
+  text-decoration: none;
+  color:black;
+  min-width: 100px;
+  height: 50px;
+  margin-bottom: 150px;
+  text-transform: uppercase;
+  padding: 15px;
+  border: none;
+  outline: none;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 400px;
+  font-size: 20px;
+  border-radius: 3px;
+  box-shadow: 4px 5px 0px;
+  border-bottom: 2px solid;
+  border-right: 1px solid;
+  margin: 0;
+}
+
+#endbutton:hover,
+#startbutton:hover {
+  color: black;
+  background-color: lightgrey;
+  box-shadow: 3px 3px 1px black;
+  border-bottom: 2px solid;
+  transform: translate(-1%, -1%);
+  transition: all 0.1s ease-in;
+}
+
+.hidden {
+  display:none !important;
 }

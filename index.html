@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rock Paper Scissors</title>
   <script defer src="script.js"></script>
+  <link rel="shortcut icon" href="#">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Rubik:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
@@ -12,29 +13,38 @@
   <link rel="stylesheet" href="./css/general.css" />
 </head>
 <body>
-  <div class="flex--center-column height">
+  <audio id="winningsound" src="sounds/mixkit-one-man-clapping-482.wav"></audio>
+  <audio id="losingsound" src="sounds/mixkit-cartoon-sad-party-horn-527.wav"></audio>
+  <audio id="startbuttonsound" src="sounds/mixkit-cool-interface-click-tone-2568.wav"></audio>
+
+  <div id='startgame' class="flex--center-column height">
+    <a href="#index.html"  id="startbutton">Start game
+    </a>
+  </div>
+
+  <main class="flex--center-column height hidden">
     <div class="container">
       <h1 class="heading-primary to-upper-case margin-bottom-md">Rock, Paper, Scissors?</h1>
     </div>
 
-    <div class="container flex--center-row gap-30">
+    <div id="main-container" class="container flex--center-row gap-30">
 
       <div class="player flex--center-column">
         <h2 class="heading-tertiary to-upper-case margin-bottom-sm">Player</h2>
         <div class="flex--center-row gap-15 margin-bottom-sm">
           <img class="logo" src="https://tmcerlean.github.io/rock-paper-scissors/images/user.png" alt="men" />
-          <p class="subheading subheading-white to-upper-case">Score: 0</p>
+          <p id="player-score" class="subheading subheading-white to-upper-case">Score: 0</p>
         </div>
-        <div class="flex--center-row gap-15">
-          <div class="item">
+        <div  class="flex--center-row gap-15 item-container">
+          <div  class="item">
             <p class="subheading subheading-black">Rock</p>
             <img class="logo" src="https://tmcerlean.github.io/rock-paper-scissors/images/rock.png" alt="rock" />
           </div>
-          <div class="item">
+          <div  class="item">
             <p class="subheading subheading-black">Paper</p>
             <img class="logo" src="https://tmcerlean.github.io/rock-paper-scissors/images/paper.png" alt="paper" />
           </div>
-          <div class="item">
+          <div  class="item">
             <p class="subheading subheading-black">Scissor</p>
             <img class="logo" src="https://tmcerlean.github.io/rock-paper-scissors/images/scissors.png" alt="scissor" />
           </div>
@@ -45,19 +55,19 @@
         <div class="computer flex--center-column">
           <h2 class="heading-tertiary to-upper-case margin-bottom-sm">Computer</h2>
           <div class="flex--center-row gap-15 margin-bottom-sm">
-            <img class="logo" src="https://tmcerlean.github.io/rock-paper-scissors/images/robot.png" alt="men" />
-            <p class="subheading subheading-white to-upper-case">Score: 0</p>
+            <img class="logo" src="https://tmcerlean.github.io/rock-paper-scissors/images/robot.png" alt="robot" />
+            <p id="computer-score" class="subheading subheading-white to-upper-case">Score: 0</p>
           </div>
-          <div class="flex--center-row gap-15">
-            <div class="item">
+          <div class="flex--center-row gap-15 item-container">
+            <div id="Rock" class="item">
               <p class="subheading subheading-black">Rock</p>
               <img class="logo" src="https://tmcerlean.github.io/rock-paper-scissors/images/rock.png" alt="rock" />
             </div>
-            <div class="item">
+            <div id="Paper" class="item">
               <p class="subheading subheading-black">Paper</p>
               <img class="logo" src="https://tmcerlean.github.io/rock-paper-scissors/images/paper.png" alt="paper" />
             </div>
-            <div class="item">
+            <div id="Scissor" class="item">
               <p class="subheading subheading-black">Scissor</p>
               <img class="logo" src="https://tmcerlean.github.io/rock-paper-scissors/images/scissors.png" alt="scissor" />
             </div>
@@ -65,6 +75,6 @@
         </div>
 
   </div>
-</div>
+</main>
 </body>
 </html>
