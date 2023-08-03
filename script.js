@@ -68,11 +68,11 @@ function playRound(playerSelection, computerSelection) {
 
 
 
-function game(playRound) {
-  for(let i = 0; i < NUMBERS_OF_ROUNDS; i++) {
-    console.log(playRound(getPlayerChoice,getComputerChoice));
-    console.log(playerScore, computerScore);
-  }
-}
+// function game(playRound) {
+//   for(let i = 0; i < NUMBERS_OF_ROUNDS; i++) {
+//     console.log(playRound(getPlayerChoice,getComputerChoice));
+//     console.log(playerScore, computerScore);
+//   }
+// }
 
-game(playRound);
+// // game(playRound);
