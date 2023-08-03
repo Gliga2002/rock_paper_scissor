@@ -58,6 +58,12 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-for(let i = 0; i < NUMBERS_OF_ROUNDS; i++) {
-  console.log(playRound(getPlayerChoice,getComputerChoice));
+
+
+function game(playRound) {
+  for(let i = 0; i < NUMBERS_OF_ROUNDS; i++) {
+    console.log(playRound(getPlayerChoice,getComputerChoice));
+  }
 }
+
+game(playRound);
