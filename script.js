@@ -1,6 +1,6 @@
 const MAX = 2;
 const MIN = 0;
-const NUMBERS_OF_ROUND = 5;
+const NUMBERS_OF_ROUNDS = 5;
 
 
 
@@ -53,6 +53,11 @@ function playRound(playerSelection, computerSelection) {
         return "You Win! Scissor beats Paper"
       }
       break;
-  }
+      default:
+        return "Please enter valid data (Rock, Paper, Scissor)";
+    }
 }
-console.log(playRound(getPlayerChoice,getComputerChoice));
+
+for(let i = 0; i < NUMBERS_OF_ROUNDS; i++) {
+  console.log(playRound(getPlayerChoice,getComputerChoice));
+}
