@@ -1,6 +1,13 @@
 const MAX = 2;
 const MIN = 0;
 const NUMBERS_OF_ROUNDS = 5;
+const PLAYER_URL = "https://tmcerlean.github.io/rock-paper-scissors/images/user.png";
+const COMPUTER_URL= "https://tmcerlean.github.io/rock-paper-scissors/images/robot.png";
+
+let playerScore = 0;
+let computerScore = 0;
+let previousClickedUserEl;
+let previousClickedComputerEl;
 
 const itemContainer = document.querySelector('.item-container');
 const playerScoreEl = document.querySelector('#player-score');
@@ -13,10 +20,6 @@ const losingAudio = document.querySelector('#losingsound');
 
 const startGameContainer = document.querySelector('#startgame');
 const mainElement = document.querySelector('main');
-
-let previousClickedUserEl;
-let previousClickedComputerEl;
-
 
 
 
@@ -40,8 +43,7 @@ itemContainer.addEventListener('click', function(e) {
   previousClickedUserEl = clickedItem;
   const clickedItemText = clickedItem.textContent.trim();
   playRound(clickedItemText, getComputerChoice);
-  console.log(playerScore);
-  console.log(computerScore);
+
 
   playerScoreEl.textContent = `Score: ${playerScore}`;
   computerScoreEl.textContent = `Score: ${computerScore}`;
@@ -50,45 +52,12 @@ itemContainer.addEventListener('click', function(e) {
   clickedAudio.play();
 
 
-  if(playerScore === NUMBERS_OF_ROUNDS) {
-    mainContainer.innerHTML = '';
-    const div = document.createElement('div');
-    div.classList.add('flex--center-column', 'gap-15');
-    div.innerHTML = `<img class="logo-md" src="https://tmcerlean.github.io/rock-paper-scissors/images/user.png" alt="men" />
-    <p id="player-score" class="subheading subheading-white to-upper-case">YOU WIN ${playerScore} : ${computerScore}</p>
-    <a onclick ="window.location.reload()" href="#index.html" id="endbutton">Play Again?
-        </a>
-    `
-    mainContainer.appendChild(div);
-    winnerAudio.play();
-  } else if(computerScore === NUMBERS_OF_ROUNDS) {
-    mainContainer.innerHTML = '';
-    const div = document.createElement('div');
-    div.classList.add('flex--center-column','gap-15');
-    div.innerHTML = `<img class="logo-md" src="https://tmcerlean.github.io/rock-paper-scissors/images/robot.png" alt="robot" />
-    <p id="player-score" class="subheading subheading-white to-upper-case">YOU LOST ${playerScore} : ${computerScore}</p>
-    <a onclick ="window.location.reload()" href="#" id="endbutton">Play Again?
-    </a>`
-
-
-    mainContainer.appendChild(div);
-    losingAudio.play();
-
-    
-  }
+  if(playerScore === NUMBERS_OF_ROUNDS) displayWinner(PLAYER_URL, true);
+  if(computerScore === NUMBERS_OF_ROUNDS) displayWinner(COMPUTER_URL, false)
 
   
 })
 
-
-
-
-// function getPlayerChoice() {
-//   const playerChoice = prompt("It's your turn to pick (Rock, Paper, Scissor)");
-//   return playerChoice[0].toUpperCase() + playerChoice.slice(1).toLocaleLowerCase();
-// }
-
-// console.log(getPlayerChoice());
 
 
 
@@ -102,15 +71,13 @@ function getComputerChoice() {
   return arrayOfChoice[randomNumber];
 }
 
-// console.log(getComputerChoice());
-let playerScore = 0;
-let computerScore = 0;
+
+
+
 
 function playRound(playerSelection, computerSelection) {
-
   const computerChoice = computerSelection();
-  console.log(playerSelection);
-  console.log(computerChoice);
+
   switch (playerSelection) {
     case 'Rock':
       if(computerChoice === 'Rock') {
@@ -149,15 +116,23 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+// if winner argument is set to true, player wins, otherwise computer
+function displayWinner(url, winner) {
+  mainContainer.innerHTML = '';
+  const div = document.createElement('div');
+  div.classList.add('flex--center-column', 'gap-15');
+  div.innerHTML = `<img class="logo-md" src=${url} alt=${winner ? 'men': 'robot'} />
+  <p id="player-score" class="subheading subheading-white to-upper-case">${winner ? 'YOU WIN' : 'YOU LOST'}  ${playerScore} : ${computerScore}</p>
+  <a onclick ="window.location.reload()" href="#index.html" id="endbutton">Play Again?
+      </a>
+  `
+  mainContainer.appendChild(div);
+  if(winner) {
+    winnerAudio.play();
+  } else {
+    losingAudio.play();
+  }
+  
+}
 
 
-
-
-// function game(playRound) {
-//   for(let i = 0; i < NUMBERS_OF_ROUNDS; i++) {
-//     console.log(playRound(getPlayerChoice,getComputerChoice));
-//     console.log(playerScore, computerScore);
-//   }
-// }
-
-// // game(playRound);
